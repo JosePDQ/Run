@@ -4,17 +4,27 @@ using UnityEngine;
 
 public class teleporter : MonoBehaviour
 {
-    [SerializeField]
-    public GameObject player;
-    [SerializeField]
-    public GameObject tp;
-    private void OnTriggerEnter(Collider other)
+    StarterAssets.FirstPersonController player;
+
+    private void Start()
+    {
+        player = gameObject.GetComponent<StarterAssets.FirstPersonController>();
+    }
+
+    public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Box")
         {
-            print("a");
-
-            player.transform.position = tp.transform.position;
+            StartCoroutine("Teleport");
         }
+    }
+
+    IEnumerator Teleport()
+    {
+        player.disabled = true;
+        yield return new WaitForSeconds(.01f);
+        gameObject.transform.position = new Vector3(-4.13f, -0.1985935f, -3.45f);
+        yield return new WaitForSeconds(.01f);
+        player.disabled = false;
     }
 }

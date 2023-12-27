@@ -6,6 +6,9 @@ TagManager:
   tags:
   - CinemachineTarget
   - Box
+  - spikes
+  - Box1
+  - Stairs
   layers:
   - Default
   - TransparentFX

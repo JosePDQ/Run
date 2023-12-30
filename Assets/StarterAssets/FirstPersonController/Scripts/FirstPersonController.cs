@@ -2,7 +2,7 @@
 #if ENABLE_INPUT_SYSTEM && STARTER_ASSETS_PACKAGES_CHECKED
 using UnityEngine.InputSystem;
 #endif
-
+using Photon.Pun;
 namespace StarterAssets
 {
 	[RequireComponent(typeof(CharacterController))]
@@ -11,6 +11,7 @@ namespace StarterAssets
 #endif
 	public class FirstPersonController : MonoBehaviour
 	{
+		PhotonView view;
 		public bool disabled = false;
 		[Header("Player")]
 		[Tooltip("Move speed of the character in m/s")]
@@ -111,22 +112,30 @@ namespace StarterAssets
 			// reset our timeouts on start
 			_jumpTimeoutDelta = JumpTimeout;
 			_fallTimeoutDelta = FallTimeout;
+
+			view = GetComponent<PhotonView>();
 			
 		}
 
 		private void Update()
 		{
-			if (!disabled)
+			if (view.IsMine)
 			{
-				JumpAndGravity();
-				GroundedCheck();
-				Move();
+				if (!disabled)
+				{
+					JumpAndGravity();
+					GroundedCheck();
+					Move();
+				}
 			}
 		}
 
 		private void LateUpdate()
 		{
-			CameraRotation();
+			if (view.IsMine)
+			{
+				CameraRotation();
+			}
 		}
 
 		private void GroundedCheck()

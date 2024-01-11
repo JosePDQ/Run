@@ -126,11 +126,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   disabled: 0
-  moveSpeed: 7
+  moveSpeed: 6
   groundDrag: 5
-  jumpForce: 6
+  jumpForce: 5
   jumpCooldown: 0.25
-  airMultiplier: 0.1
+  airMultiplier: 0.4
   jumkey: 32
   playerHeight: 2
   whatIsGround:

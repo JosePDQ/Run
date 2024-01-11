@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerSetup : MonoBehaviour
 {
-    public PlayerMovement movement;
+    public Movement movement;
 
     public GameObject Cam;
 

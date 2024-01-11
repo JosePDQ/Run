@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class teleporter : MonoBehaviour
 {
-    PlayerMovement player;
+    Movement player;
 
     private void Start()
     {
-        player = gameObject.GetComponent<PlayerMovement>();
+        player = gameObject.GetComponent<Movement>();
     }
     public void Update()
     {

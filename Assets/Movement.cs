@@ -6,7 +6,7 @@ public class Movement : MonoBehaviour
 {
     public bool disabled = false;
     public CharacterController controller;
-    float speed = 12f;
+    float speed = 6f;
     Vector3 velocity;
     public float gravity = -9.81f;
     public float jumpheight = 1f;
@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     public Transform groundcheck;
     public float grounddistance = 0.4f;
     public LayerMask groundmask;
-    bool isgrounded;
+    bool isgrounded = false;
 
     // Start is called before the first frame update
     void Start()
@@ -30,7 +30,7 @@ public class Movement : MonoBehaviour
             isgrounded = Physics.CheckSphere(groundcheck.position, grounddistance, groundmask);
 
             if (isgrounded && velocity.y < 0)
-            {
+            {   
                 velocity.y = -2f;
             }
             float x = Input.GetAxis("Horizontal");

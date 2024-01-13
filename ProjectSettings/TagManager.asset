@@ -9,6 +9,7 @@ TagManager:
   - spikes
   - Box1
   - Stairs
+  - End
   layers:
   - Default
   - TransparentFX

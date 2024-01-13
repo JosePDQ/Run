@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class teleporter1 : MonoBehaviour
+public class teleporter2 : MonoBehaviour
 {
     Movement player;
 
@@ -10,11 +10,16 @@ public class teleporter1 : MonoBehaviour
     {
         player = gameObject.GetComponent<Movement>();
     }
+    public void Update()
+    {
+
+    }
 
     public void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Box1")
+        if (other.gameObject.tag == "spikes")
         {
+            print("spikes");
             StartCoroutine("Teleport");
         }
     }
@@ -23,7 +28,7 @@ public class teleporter1 : MonoBehaviour
     {
         player.disabled = true;
         yield return new WaitForSeconds(.01f);
-        gameObject.transform.position = new Vector3(-34.05f, 0, -2);
+        gameObject.transform.position = new Vector3(-43.45945f, 8.04f, -2.306515f);
         yield return new WaitForSeconds(.01f);
         player.disabled = false;
     }

@@ -10,6 +10,7 @@ TagManager:
   - Box1
   - Stairs
   - End
+  - box3
   layers:
   - Default
   - TransparentFX

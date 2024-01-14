@@ -65,6 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7ff394c77c44fb4f8076de7ec08cf77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  disabled: 0
   controller: {fileID: 3353271498383103172}
   gravity: -19.62
   jumpheight: 3
@@ -202,7 +203,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3353271498958234283
 Transform:
   m_ObjectHideFlags: 0

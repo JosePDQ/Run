@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class PlayerSetup : MonoBehaviour
 {
     public Movement movement;
+    public End end;
 
     public GameObject Cam;
    
@@ -14,6 +15,7 @@ public class PlayerSetup : MonoBehaviour
 
     public void isLocalPLayer()
     {
+        end.enabled = true;
         movement.enabled = true;
         Cam.SetActive(true);
         

@@ -11,6 +11,8 @@ TagManager:
   - Stairs
   - End
   - box3
+  - blade
+  - final
   layers:
   - Default
   - TransparentFX

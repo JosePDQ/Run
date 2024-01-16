@@ -2,25 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using Photon.Pun;
 
 public class End : MonoBehaviour
 {
     Movement player;
     public GameObject canvas;
+    PhotonView view;
+    
 
     private void Start()
     {
         player = gameObject.GetComponent<Movement>();
-        
+        view = GetComponent<PhotonView>();
+
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "final")
         {
-
-            canvas.SetActive(true);
-            print("you won");
+            if (view.IsMine)
+            {
+                canvas.SetActive(true);
+                print("you won");
+            }
         }
 
     }
@@ -30,18 +36,24 @@ public class End : MonoBehaviour
         if (other.gameObject.tag == "final")
         {
 
-            canvas.SetActive(false);
-            print("you won");
+            if (view.IsMine)
+            {
+                canvas.SetActive(false);
+                print("you won");
+            }
         }
 
     }
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R))
+        if (view.IsMine)
+        { 
+        if (Input.GetKeyDown(KeyCode.R))
         {
             StartCoroutine("Teleport");
         }
+    }
     }
     IEnumerator Teleport()
     {
